@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -65,6 +66,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.annotation:annotation:1.6.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -72,6 +74,8 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil:2.5.0")
+    implementation ("io.coil-kt:coil-gif:2.1.0")
+
 
     //Retrofit (API)
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -102,4 +106,34 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
+
+    //KTOR cliente API service
+    implementation ("io.ktor:ktor-client-core:2.2.4")
+    implementation("io.ktor:ktor-client-android:2.2.4")
+    implementation("io.ktor:ktor-client-okhttp:2.2.4")
+    implementation("io.ktor:ktor-client-logging:2.2.4")
+    // The serialization engine used to convert objects to and from JSON.
+    implementation ("io.ktor:ktor-client-json:2.2.4")
+    implementation ("io.ktor:ktor-client-serialization:2.2.4")
+    // content Negotiation
+    implementation("io.ktor:ktor-client-content-negotiation:2.2.4")
+    // Json
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.4")
+    //XML
+    implementation("io.ktor:ktor-serialization-kotlinx-xml:2.2.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+
+    //Lottie (ANIMACIONES)
+    implementation ("com.airbnb.android:lottie:6.0.0")
+    //SWIPE RECYCLERVIEW
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    //Glide: Gifs
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
+
+
 }

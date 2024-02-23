@@ -32,8 +32,8 @@ class SignUpFragment : Fragment() {
         binding.btnSignUp.setOnClickListener {
             createNewUsers(
                 viewModel.auth,
-                binding.txtUser.toString(),
-                binding.txtPassword.toString()
+                binding.txtUser.text.toString(),
+                binding.txtPassword.text.toString()
             )
         }
 
@@ -42,6 +42,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun createNewUsers(auth: FirebaseAuth, user: String, password: String) {
+        Log.d("TAG", "user $user, pass $password")
         auth.createUserWithEmailAndPassword(
             user, password
         )

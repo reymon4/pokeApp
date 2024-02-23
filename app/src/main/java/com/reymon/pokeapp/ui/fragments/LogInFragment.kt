@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.reymon.pokeapp.databinding.FragmentLogInBinding
+import com.reymon.pokeapp.ui.activities.HomeActivity
 import com.reymon.pokeapp.ui.activities.MarvelActivity
 import com.reymon.pokeapp.ui.viewmodels.LogAndSignSharedViewModel
 
@@ -29,7 +30,7 @@ class LogInFragment : Fragment() {
         binding = FragmentLogInBinding.inflate(inflater, container, false)
 
         binding.btnLogIn.setOnClickListener{
-            signInUsers(viewModel.auth,binding.txtUser.toString(),binding.txtPassword.toString())
+            signInUsers(viewModel.auth,binding.txtUser.text.toString(),binding.txtPassword.text.toString())
         }
 
         return binding.root
@@ -41,7 +42,7 @@ class LogInFragment : Fragment() {
                 if (task.isSuccessful) {
                     //Con este user puedo hacer lo que desee: enviar a una api, db, etc
                     val user = auth.currentUser
-                    startActivity(Intent(requireContext(), MarvelActivity::class.java))
+                    startActivity(Intent(requireContext(), HomeActivity::class.java))
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("TAG", "signInWithEmail:failure", task.exception)

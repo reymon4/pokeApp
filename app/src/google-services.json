@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1017325275164",
-    "project_id": "pokeapp-1067e",
-    "storage_bucket": "pokeapp-1067e.appspot.com"
+    "project_number": "431560967112",
+    "project_id": "pokeapp-96741",
+    "storage_bucket": "pokeapp-96741.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1017325275164:android:980e037217b97106a7b7d9",
+        "mobilesdk_app_id": "1:431560967112:android:f1b7a8cb300645584276fd",
         "android_client_info": {
           "package_name": "com.reymon.pokeapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyArodL_0EQje2KH46ms-lkaOE-ruaKhG2k"
+          "current_key": "AIzaSyAGZ9--wkZYK3JMCpeM9Vd4OiYbHWMLPCU"
         }
       ],
       "services": {

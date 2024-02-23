@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:background="@drawable/backgroud_pokeapp"/>
+            <stroke android:width="0dp" android:color="#aba9a9"></stroke>
+            <size android:width="900dp" android:height="900dp"></size>
+            <gradient
+                android:angle="90"
+                android:endColor="#EEFF0000"
+                android:startColor="#A6000000"
+                android:type="linear">
+            </gradient>
+        </shape>
+    </item>
+
+</selector>
+
+

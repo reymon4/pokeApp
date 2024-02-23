@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         if (currentUser != null) {
             binding.txtDontHaveAccount.visibility = View.GONE
             binding.txtSignUp.visibility = View.GONE
+            binding.btnLogIn.visibility=View.GONE
             binding.txtLogIn.visibility = View.GONE
             binding.txtLogIn.visibility = View.VISIBLE
             binding.imgHuella.visibility = View.VISIBLE
@@ -74,7 +75,9 @@ class MainActivity : AppCompatActivity() {
     private fun initListener() {
 
         binding.imgHuella.setOnClickListener {
-            biometricPrompt.authenticate(promptInfo)
+            Log.d("Huella", "Touch fingerprint!")
+            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+            //biometricPrompt.authenticate(promptInfo)
         }
         binding.txtSignUp.setOnClickListener {
             binding.txtDontHaveAccount.visibility = View.GONE
@@ -101,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         biometricPrompt =
             BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                    startActivity(Intent(this@MainActivity, MarvelActivity::class.java))
+                    startActivity(Intent(this@MainActivity, HomeActivity::class.java))
                 }
 
                 override fun onAuthenticationFailed() {

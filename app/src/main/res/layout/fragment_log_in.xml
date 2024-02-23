@@ -9,37 +9,6 @@
     tools:context=".ui.fragments.LogInFragment">
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/view"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="1.0"-->
-<!--        app:srcCompat="@drawable/backgroud_pokeapp" />-->
-
-<!--    <View-->
-<!--        android:id="@+id/view"-->
-<!--        android:layout_width="411dp"-->
-<!--        android:layout_height="372dp"-->
-<!--        android:background="@drawable/gradient2"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
-<!--    <ImageView-->
-<!--        android:id="@+id/img_logo"-->
-<!--        android:layout_width="331dp"-->
-<!--        android:layout_height="245dp"-->
-<!--        android:layout_marginTop="56dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/view"-->
-<!--        app:srcCompat="@drawable/pokeapp_logo_trans_white" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout"

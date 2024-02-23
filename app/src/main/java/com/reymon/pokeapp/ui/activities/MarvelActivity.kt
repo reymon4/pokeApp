@@ -44,9 +44,6 @@ class MarvelActivity : AppCompatActivity() {
             // Check if user's email is verified
             val emailVerified = it.isEmailVerified
 
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // ID de firebase
             val uid = it.uid
 
             Log.d("TAG", email.toString())

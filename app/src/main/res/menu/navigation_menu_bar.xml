@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/it_home"
+        android:enabled="true"
+        android:icon="@drawable/home_red_icon"
+        android:title="Home"/>
+    <item
+        android:id="@+id/it_fav"
+        android:enabled="true"
+        android:icon="@drawable/like_red_icon"
+        android:title="Favorites"/>
+    <item
+        android:id="@+id/it_puzzle"
+        android:enabled="true"
+        android:icon="@drawable/puzzle_red_icon"
+        android:title="Puzzle"/>
+    <item
+        android:id="@+id/it_watch"
+        android:enabled="true"
+        android:icon="@drawable/tv_red_icon"
+        android:title="Profile"/>
+
+</menu>
