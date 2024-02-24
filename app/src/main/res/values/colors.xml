@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!--THIRD PALETTE-->
+    <!--    platinum-->
+    <color name="beige">#cdd7d6</color>
     <color name="red">#F82626</color>
-    <color name="beige">#EDDDD4</color>
-    <color name="navy_blue">#0e79b2</color>
-    <color name="orange">#F6ae2d</color>
-    <color name="light_blue">#55dde0</color>
+    <color name="navy_blue">#102542</color>
+    <color name="khaki">#b3a394</color>
+    <color name="white">#FFFFFFFF</color>
+    <!--    First palette-->
+    <color name="light_blue">#96cdff</color>
+    <color name="lavender">#d8e1ff</color>
+    <color name="pink_lavender">#dbbadd</color>
+    <color name="puce">#be92a2</color>
+    <!--    Second palette-->
+    <color name="magnolia">#f7f0f5</color>
+    <color name="dun">#decbb7</color>
+    <color name="walnut_brown">#5c5552</color>
+    <color name="van_dyke">#433633</color>
 </resources>

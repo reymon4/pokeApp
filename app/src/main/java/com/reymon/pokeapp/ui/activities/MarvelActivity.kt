@@ -11,19 +11,13 @@ import com.google.firebase.ktx.Firebase
 import com.reymon.pokeapp.R
 
 class MarvelActivity : AppCompatActivity() {
-
+    //Debo crear binding, viewModel
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
+
         setContentView(R.layout.activity_marvel)
-//
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
-        auth = Firebase.auth
+
         getUsersData()
         initListeners()
     }
@@ -33,6 +27,8 @@ class MarvelActivity : AppCompatActivity() {
         logOut()
     }
 
+
+    //Consulto el user en la db
     private fun getUsersData() {
         val user = Firebase.auth.currentUser
         user?.let {

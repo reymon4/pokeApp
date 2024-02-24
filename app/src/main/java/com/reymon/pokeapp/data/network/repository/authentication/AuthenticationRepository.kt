@@ -1,55 +1,49 @@
-//package com.reymon.pokeapp.data.network.repository.authentication
-//
-//import android.content.Intent
-//import android.util.Log
-//import com.google.android.material.snackbar.Snackbar
-//import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.auth.auth
-//import com.google.firebase.auth.ktx.auth
-//import com.google.firebase.ktx.Firebase
-//import com.reymon.pokeapp.ui.activities.HomeActivity
-//
-//class AuthenticationRepository{
-//
-//    private val auth= Firebase.auth
-//    private fun createNewUsers(auth: FirebaseAuth, user: String, password: String) {
-//        Log.d("TAG", "user $user, pass $password")
-//        auth.createUserWithEmailAndPassword(
-//            user, password
-//        )
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    // Sign in success, update UI with the signed-in user's information
-//                    Log.d("TAG", "createUserWithEmail:success")
-//                    val user = auth.currentUser
-//
-//                } else {
-//                    Snackbar.make(
-//                        binding.txtUser,
-//                        task.exception!!.message.toString(),
-//                        Snackbar.LENGTH_LONG
-//                    ).show()
-//                    Log.d("TAG", task.exception!!.stackTraceToString())
-//                }
-//            }
-//    }
-//
-//    private fun signInUsers(auth: FirebaseAuth,email: String, password: String) {
-//        auth.signInWithEmailAndPassword(email, password)
-//            .addOnCompleteListener() { task ->
-//                if (task.isSuccessful) {
-//                    //Con este user puedo hacer lo que desee: enviar a una api, db, etc
-//                    val user = auth.currentUser
-//                    startActivity(Intent(requireContext(), HomeActivity::class.java))
-//                } else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w("TAG", "signInWithEmail:failure", task.exception)
-//                    Snackbar.make(
-//                        binding.root,
-//                        "Account not found. Register first!",
-//                        Snackbar.LENGTH_SHORT,
-//                    ).show()
-//                }
-//            }
-//    }
-//}
+package com.reymon.pokeapp.data.network.repository.authentication
+
+
+import android.content.Intent
+import android.util.Log
+import kotlinx.coroutines.tasks.await
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.reymon.pokeapp.data.network.entities.users.UserDB
+import com.reymon.pokeapp.ui.activities.MainActivity
+
+
+class AuthenticationRepository {
+
+    private val auth = Firebase.auth
+    suspend fun createUserWithEmailAndPassword(
+        user: String,
+        password: String
+    )= runCatching {
+        var userDB: UserDB? = null
+        val usFirebase = auth.createUserWithEmailAndPassword(user, password).await().user
+        if (usFirebase != null) {
+            userDB = UserDB(usFirebase.uid, usFirebase.email!!, usFirebase.displayName.orEmpty())
+        }
+       return@runCatching userDB
+    }
+
+    suspend fun signInUsers(email: String, password: String): Result<UserDB?> = runCatching {
+        var userDB: UserDB? = null
+        val usFirebase=auth.signInWithEmailAndPassword(email, password).await().user
+         if(usFirebase!=null){
+             userDB = UserDB(usFirebase.uid, usFirebase.email!!, usFirebase.displayName.orEmpty())
+         }
+        return@runCatching userDB
+    }
+
+     fun signOut() {
+        var userDB = auth.currentUser
+        if (userDB != null) {
+            Log.d("TAG", userDB.email.toString())
+            Log.d("TAG", userDB.uid.toString())
+            auth.signOut()
+        }
+
+    }
+
+
+
+}

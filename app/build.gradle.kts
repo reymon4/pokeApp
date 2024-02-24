@@ -51,6 +51,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -134,6 +135,13 @@ dependencies {
     // Declare the dependency for the Cloud Firestore library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-firestore")
+
+    //sl4j-> See json from response API
+//    implementation ("org.slf4j:slf4j-api:1.7.36")
+//    implementation ("org.slf4j:slf4j-android:1.7.36")
+    //Decorator
+    implementation ("it.xabaras.android:recyclerview-swipedecorator:1.4")
+
 
 
 }

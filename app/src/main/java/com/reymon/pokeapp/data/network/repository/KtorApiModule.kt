@@ -23,8 +23,8 @@ object KtorApiModule {
     fun getKtorHttpClient()  = HttpClient(Android) {
         expectSuccess = true
         engine {
-            connectTimeout = 2000
-            socketTimeout = 15000
+            connectTimeout = 1000
+            socketTimeout = 1000
         }
         // Logging
         install(Logging) {
@@ -42,9 +42,9 @@ object KtorApiModule {
         }
         // Timeout
         install(HttpTimeout) {
-            requestTimeoutMillis = 1000L * 300L
-            connectTimeoutMillis = 2000
-            socketTimeoutMillis = 1000L * 120L
+            requestTimeoutMillis = 1000
+            connectTimeoutMillis = 1000
+            socketTimeoutMillis = 1000
         }
         // Response observer
         install(ResponseObserver) {

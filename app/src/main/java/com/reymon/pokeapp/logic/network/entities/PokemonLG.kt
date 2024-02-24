@@ -1,4 +1,4 @@
-package com.reymon.pokeapp.logic.entities
+package com.reymon.pokeapp.logic.network.entities
 
 import com.reymon.pokeapp.data.network.entities.poke.Form
 import com.reymon.pokeapp.data.network.entities.poke.Move
@@ -10,10 +10,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PokemonLG(
-    var id: Int = -1,
-    var name: String = "",
-    val base_experience: Int = -1,
-    val height: Int = -1,
-    val weight: Int = -1,
+    var id: Int?= -1,
+    var name: String?= "",
+    val base_experience: Int?= -1,
+    val height: Int?= -1,
+    val weight: Int?= -1,
     var sprites: Sprites?=null,
 )

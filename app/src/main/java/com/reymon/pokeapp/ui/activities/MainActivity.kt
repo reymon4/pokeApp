@@ -12,16 +12,11 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.reymon.pokeapp.R
 import com.reymon.pokeapp.databinding.ActivityMainBinding
 import com.reymon.pokeapp.ui.fragments.LogInFragment
 import com.reymon.pokeapp.ui.fragments.SignUpFragment
-import com.reymon.pokeapp.ui.viewmodels.LogAndSignSharedViewModel
 import com.reymon.pokeapp.ui.viewmodels.MainViewModel
 import java.util.concurrent.Executor
 
@@ -40,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     //ViewModels
     private val mainViewModel: MainViewModel by viewModels()
-    private val logAndSignSharedViewModel: LogAndSignSharedViewModel by viewModels()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val currentUser = logAndSignSharedViewModel.auth.currentUser
+        val currentUser = mainViewModel.user
         if (currentUser != null) {
             binding.txtDontHaveAccount.visibility = View.GONE
             binding.txtSignUp.visibility = View.GONE
@@ -76,13 +71,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.imgHuella.setOnClickListener {
             Log.d("Huella", "Touch fingerprint!")
-            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
-            //biometricPrompt.authenticate(promptInfo)
+            //startActivity(Intent(this@MainActivity, HomeActivity::class.java))
+            biometricPrompt.authenticate(promptInfo)
         }
         binding.txtSignUp.setOnClickListener {
             binding.txtDontHaveAccount.visibility = View.GONE
             binding.txtSignUp.visibility = View.GONE
             binding.btnLogIn.visibility = View.GONE
+
             replaceFragment(SignUpFragment())
 
         }

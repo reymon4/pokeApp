@@ -1,13 +1,10 @@
-package com.reymon.pokeapp.logic.usercases.poke
+package com.reymon.pokeapp.logic.network.poke
 
 import android.util.Log
-import com.reymon.pokeapp.data.network.entities.poke.Pokemon
-import com.reymon.pokeapp.data.network.entities.poke.Showdown
-import com.reymon.pokeapp.data.network.entities.poke.ShowdownX
-import com.reymon.pokeapp.data.network.entities.poke.Sprites
+
 import com.reymon.pokeapp.data.network.repository.KtorApiModule
 import com.reymon.pokeapp.data.network.repository.RetrofitBase
-import com.reymon.pokeapp.logic.entities.PokemonLG
+import com.reymon.pokeapp.logic.network.entities.PokemonLG
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.url
@@ -27,7 +24,6 @@ class GetPokemonsKtor {
         }.onSuccess {
             if (it.status.isSuccess()) {
                 ret = it.body()
-
 
             }
 
@@ -50,6 +46,8 @@ class GetPokemonsKtor {
 
         return pokemonList
     }
+
+
 
     suspend fun invokeForName(name: String): PokemonLG {
         var ret = PokemonLG()

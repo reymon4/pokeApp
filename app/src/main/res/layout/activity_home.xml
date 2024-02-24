@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/beige"
     tools:context=".ui.activities.HomeActivity">
 
 
@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/nunito_sans_bold"
-        android:text="@string/welcome_back"
+        android:text="@string/discover_your_favorite_pok_mon"
         android:textAlignment="center"
+        android:textColor="@color/navy_blue"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_header" />
 
@@ -94,7 +94,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@color/white"
+        android:background="@color/navy_blue"
         app:itemIconTint="@color/red"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,15 +107,16 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
 
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/yellow_check" />
+        app:lottie_rawRes="@raw/loading_home" />
+
     <FrameLayout
         android:id="@+id/frm_container"
         android:layout_width="match_parent"

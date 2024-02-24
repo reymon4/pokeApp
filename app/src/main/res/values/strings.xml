@@ -22,4 +22,5 @@
     <string name="title_dialog">Mensaje de información</string>
     <string name="aceptar">Aceptar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="discover_your_favorite_pok_mon">Discover your favorite Pokémon!</string>
 </resources>
