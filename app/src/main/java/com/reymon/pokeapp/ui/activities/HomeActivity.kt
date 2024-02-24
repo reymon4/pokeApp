@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.reymon.pokeapp.R
 import com.reymon.pokeapp.databinding.ActivityHomeBinding
 import com.reymon.pokeapp.logic.network.entities.PokemonLG
@@ -26,6 +28,7 @@ import com.reymon.pokeapp.ui.fragments.PuzzleFragment
 import com.reymon.pokeapp.ui.viewmodels.MainViewModel
 import com.reymon.pokeapp.ui.viewmodels.PokeApiViewModel
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -37,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
     private val adapter = PokeAdapter()
     private val viewModel: PokeApiViewModel by viewModels()
     private val mainViewModel: MainViewModel by viewModels()
+    private val auth = Firebase.auth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -210,4 +214,16 @@ class HomeActivity : AppCompatActivity() {
         transaction.replace(binding.frmContainer.id, fragment)
         transaction.commit()
     }
-}
+    fun signOut() {
+        val user = auth.currentUser
+        if (user != null) {
+            Log.d("User", user.email.toString()+user.uid.toString())
+            auth.signOut()
+        }else{
+            Log.d("User", "No se puede cerrar sesión!")
+        }
+
+        }
+
+    }
+
